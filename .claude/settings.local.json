@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /Users/jinnan/Desktop/project/Hair/.claude/agents)",
+      "Bash(xcodebuild -version)",
+      "Bash(xcrun --show-sdk-path)",
+      "Bash(ruby -e \"require 'xcodeproj'; puts 'xcodeproj gem OK'\")",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(ls /Applications/ | grep -i xcode 2>/dev/null; echo \"---\"; ls /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform 2>/dev/null; echo \"---done\")",
+      "Read(//Applications/**)",
+      "Read(//Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/**)",
+      "Bash(sudo xcode-select -s /Applications/Xcode.app/Contents/Developer)",
+      "Bash(xcode-select -p)",
+      "Bash(gem install *)",
+      "Bash(ruby -e \"require 'xcodeproj'; puts Xcodeproj::VERSION\")",
+      "Bash(ruby generate_project.rb)",
+      "Bash(DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild -project Hair.xcodeproj -scheme Hair -destination 'platform=iOS Simulator,name=iPhone 16' build)",
+      "Bash(DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild -project Hair.xcodeproj -scheme Hair -destination 'platform=iOS Simulator,name=iPhone 17' build)"
+    ],
+    "additionalDirectories": [
+      "/Users/jinnan/Desktop/project/Hair/.claude"
+    ]
+  }
+}

@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0382893749577311B61D4F36 /* Modules/Sleep/SleepDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F283E170D3B67451D135A1A /* Modules/Sleep/SleepDetailView.swift */; };
+		04CC5D73BEB6FF7584EFF253 /* Modules/Sleep/SleepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E29EC7F5DBEC6B3FE962755 /* Modules/Sleep/SleepViewModel.swift */; };
+		064603C1E895E1533EECF5FC /* Core/ModuleRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B424F66A1971E4E2927EB81 /* Core/ModuleRegistry.swift */; };
+		09A74D04F3F0CE489BD1B0E7 /* Core/Components/EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342C98CD8B4427F69C30EF3E /* Core/Components/EmptyStateView.swift */; };
+		2B2BAFE7C48CFC19618BDDA2 /* App/HairApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4D7C70052C8184E8945A0A /* App/HairApp.swift */; };
+		38255B1A83700A2EAEBA8406 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931071895EC5B2F1D2F7E869 /* Assets.xcassets */; };
+		3B2119A16A38D8BBF6927E32 /* Core/Models/MedicationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FBF88A5B7B93B6962EBD11 /* Core/Models/MedicationRecord.swift */; };
+		3BBBB99388CA9D1DCB1F0E2C /* Modules/Comb/CombDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A5763271F62476A8FB6FA /* Modules/Comb/CombDetailView.swift */; };
+		3D28A5A8E89D782C62560217 /* Modules/Medication/MedicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BAA1F7682E81421B6948C /* Modules/Medication/MedicationModule.swift */; };
+		3ED24173BBF55923771450DF /* Modules/Sleep/TextExplosionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF04492E89930BAD2AD30F78 /* Modules/Sleep/TextExplosionView.swift */; };
+		4429D8575543729A305C7375 /* Modules/Medication/SparkAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9380728A2E601E5527D795 /* Modules/Medication/SparkAnimationView.swift */; };
+		4B34E548164764BB1BFBC3D8 /* Modules/Medication/MedicationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E600F879DE4AADC3C894AF /* Modules/Medication/MedicationDetailView.swift */; };
+		765FFB2CE3BB55F815A9B925 /* Modules/Sleep/SleepModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9EF36579AEB85C9CA334E /* Modules/Sleep/SleepModule.swift */; };
+		990BCAA229CAA63E8571A8A3 /* Core/Services/NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A11FA8792E5C226FA3B20 /* Core/Services/NotificationService.swift */; };
+		A9026C00F246DB6D24CA0A4C /* Modules/Medication/MedicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2065FD9E5CCFCE2BFF93282 /* Modules/Medication/MedicationViewModel.swift */; };
+		AB79C07F1764F1DC47CAE123 /* Home/ModuleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C4E820CF961A0750F33E5 /* Home/ModuleCardView.swift */; };
+		B8D8180F652A6965FB1CC939 /* Modules/Comb/CombViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48ACB05947A59CFF5AF0082 /* Modules/Comb/CombViewModel.swift */; };
+		B93A1408ED75206D714B1AE6 /* Core/Models/SleepRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A265287E7DF4BF91F86A77A8 /* Core/Models/SleepRecord.swift */; };
+		C09E69D6D792B15CC5672664 /* Core/Components/CelebrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440B32EF9CBE42CBF6C6703 /* Core/Components/CelebrationView.swift */; };
+		CA94D85595F4E58FE98BFF71 /* Core/ModuleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16349B3691929C0A061ACDF7 /* Core/ModuleProtocol.swift */; };
+		D0FE828866D2CFD42946C44D /* Home/HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397AB93000AC39B71123DB65 /* Home/HomeView.swift */; };
+		D16900EEA25B9EB7917882D1 /* Core/Services/SleepOverdueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718C9A9212D2BCFC6FBD2BFE /* Core/Services/SleepOverdueManager.swift */; };
+		E277DFC7EAE413122EBAE625 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FCD9FC0F54C2F4A9D6B0F25 /* SwiftUI.framework */; };
+		E858DC3A08A6957AA6D3F782 /* Core/Models/CombRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DE2A0E222C733CF5C9FC6 /* Core/Models/CombRecord.swift */; };
+		ED041945A1ABAF8C9CF17E2C /* Core/Services/StreakCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EDF49636A79D80BE42BC39 /* Core/Services/StreakCalculator.swift */; };
+		F5E7F9334655B58E6272401C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5CE7522EC5DA951FE67A5FC /* UserNotifications.framework */; };
+		F615D5116583AA76C111F163 /* Modules/Comb/CombModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721B5658E8DF3B4263648E79 /* Modules/Comb/CombModule.swift */; };
+		FE26032EF71B39BF3B54AF9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF1B32EB80982FFA3D263DB /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		16349B3691929C0A061ACDF7 /* Core/ModuleProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Core/ModuleProtocol.swift; sourceTree = "<group>"; };
+		1A4A5763271F62476A8FB6FA /* Modules/Comb/CombDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Modules/Comb/CombDetailView.swift; sourceTree = "<group>"; };
+		1BD6A659793A30AD7D1D09A2 /* Hair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hair.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		342C98CD8B4427F69C30EF3E /* Core/Components/EmptyStateView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Core/Components/EmptyStateView.swift; sourceTree = "<group>"; };
+		397AB93000AC39B71123DB65 /* Home/HomeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Home/HomeView.swift; sourceTree = "<group>"; };
+		59E600F879DE4AADC3C894AF /* Modules/Medication/MedicationDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Modules/Medication/MedicationDetailView.swift; sourceTree = "<group>"; };
+		5DF1B32EB80982FFA3D263DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6A4D7C70052C8184E8945A0A /* App/HairApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = App/HairApp.swift; sourceTree = "<group>"; };
+		6B424F66A1971E4E2927EB81 /* Core/ModuleRegistry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Core/ModuleRegistry.swift; sourceTree = "<group>"; };
+		6E29EC7F5DBEC6B3FE962755 /* Modules/Sleep/SleepViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Modules/Sleep/SleepViewModel.swift; sourceTree = "<group>"; };
+		6FCD9FC0F54C2F4A9D6B0F25 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = "<group>"; };
+		718C9A9212D2BCFC6FBD2BFE /* Core/Services/SleepOverdueManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Core/Services/SleepOverdueManager.swift; sourceTree = "<group>"; };
+		721B5658E8DF3B4263648E79 /* Modules/Comb/CombModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Modules/Comb/CombModule.swift; sourceTree = "<group>"; };
+		783C4E820CF961A0750F33E5 /* Home/ModuleCardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Home/ModuleCardView.swift; sourceTree = "<group>"; };
+		8F283E170D3B67451D135A1A /* Modules/Sleep/SleepDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Modules/Sleep/SleepDetailView.swift; sourceTree = "<group>"; };
+		926BAA1F7682E81421B6948C /* Modules/Medication/MedicationModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Modules/Medication/MedicationModule.swift; sourceTree = "<group>"; };
+		931071895EC5B2F1D2F7E869 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		988A11FA8792E5C226FA3B20 /* Core/Services/NotificationService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Core/Services/NotificationService.swift; sourceTree = "<group>"; };
+		A2065FD9E5CCFCE2BFF93282 /* Modules/Medication/MedicationViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Modules/Medication/MedicationViewModel.swift; sourceTree = "<group>"; };
+		A265287E7DF4BF91F86A77A8 /* Core/Models/SleepRecord.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Core/Models/SleepRecord.swift; sourceTree = "<group>"; };
+		A50DE2A0E222C733CF5C9FC6 /* Core/Models/CombRecord.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Core/Models/CombRecord.swift; sourceTree = "<group>"; };
+		AD57E89E0D35FFE839979A56 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF04492E89930BAD2AD30F78 /* Modules/Sleep/TextExplosionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Modules/Sleep/TextExplosionView.swift; sourceTree = "<group>"; };
+		B7F9EF36579AEB85C9CA334E /* Modules/Sleep/SleepModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Modules/Sleep/SleepModule.swift; sourceTree = "<group>"; };
+		C440B32EF9CBE42CBF6C6703 /* Core/Components/CelebrationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Core/Components/CelebrationView.swift; sourceTree = "<group>"; };
+		D48ACB05947A59CFF5AF0082 /* Modules/Comb/CombViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Modules/Comb/CombViewModel.swift; sourceTree = "<group>"; };
+		E5CE7522EC5DA951FE67A5FC /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = "<group>"; };
+		E5FBF88A5B7B93B6962EBD11 /* Core/Models/MedicationRecord.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Core/Models/MedicationRecord.swift; sourceTree = "<group>"; };
+		F2EDF49636A79D80BE42BC39 /* Core/Services/StreakCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Core/Services/StreakCalculator.swift; sourceTree = "<group>"; };
+		FF9380728A2E601E5527D795 /* Modules/Medication/SparkAnimationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Modules/Medication/SparkAnimationView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		51954560D1C860E8A5E351F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE26032EF71B39BF3B54AF9B /* Foundation.framework in Frameworks */,
+				E277DFC7EAE413122EBAE625 /* SwiftUI.framework in Frameworks */,
+				F5E7F9334655B58E6272401C /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02A8B44BDDD75B3EEEDF9F71 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				816AEFF4BEA545541D6A6E68 /* Comb */,
+				5A6B0FEAC3569EA75CB9A0E9 /* Medication */,
+				8FA4FBDE039495A39F3E0D5A /* Sleep */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		0A0E9B377974537732319141 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D15E064875517CFA97993A3F /* iOS */,
+				6FCD9FC0F54C2F4A9D6B0F25 /* SwiftUI.framework */,
+				E5CE7522EC5DA951FE67A5FC /* UserNotifications.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1C4C96AA9A2D349493A681F8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D86A6181F72B213533F23AB9 /* Models */,
+				B2105CAC376BC4F384DFC504 /* Services */,
+				16349B3691929C0A061ACDF7 /* Core/ModuleProtocol.swift */,
+				6B424F66A1971E4E2927EB81 /* Core/ModuleRegistry.swift */,
+				36B7FEF7C882233AEB52F055 /* Components */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		2C02254237F87D37D3C0DB2F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				397AB93000AC39B71123DB65 /* Home/HomeView.swift */,
+				783C4E820CF961A0750F33E5 /* Home/ModuleCardView.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		36B7FEF7C882233AEB52F055 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C440B32EF9CBE42CBF6C6703 /* Core/Components/CelebrationView.swift */,
+				342C98CD8B4427F69C30EF3E /* Core/Components/EmptyStateView.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		5A19B3013F649C18C6DF7B9B = {
+			isa = PBXGroup;
+			children = (
+				965B19D25399B3B5E200AEA3 /* Products */,
+				0A0E9B377974537732319141 /* Frameworks */,
+				747A7485FDDF57BB296BB091 /* Hair */,
+			);
+			sourceTree = "<group>";
+		};
+		5A6B0FEAC3569EA75CB9A0E9 /* Medication */ = {
+			isa = PBXGroup;
+			children = (
+				926BAA1F7682E81421B6948C /* Modules/Medication/MedicationModule.swift */,
+				A2065FD9E5CCFCE2BFF93282 /* Modules/Medication/MedicationViewModel.swift */,
+				59E600F879DE4AADC3C894AF /* Modules/Medication/MedicationDetailView.swift */,
+				FF9380728A2E601E5527D795 /* Modules/Medication/SparkAnimationView.swift */,
+			);
+			name = Medication;
+			sourceTree = "<group>";
+		};
+		747A7485FDDF57BB296BB091 /* Hair */ = {
+			isa = PBXGroup;
+			children = (
+				C093929223D40D0703914543 /* App */,
+				1C4C96AA9A2D349493A681F8 /* Core */,
+				2C02254237F87D37D3C0DB2F /* Home */,
+				02A8B44BDDD75B3EEEDF9F71 /* Modules */,
+				931071895EC5B2F1D2F7E869 /* Assets.xcassets */,
+				AD57E89E0D35FFE839979A56 /* Info.plist */,
+			);
+			path = Hair;
+			sourceTree = "<group>";
+		};
+		816AEFF4BEA545541D6A6E68 /* Comb */ = {
+			isa = PBXGroup;
+			children = (
+				721B5658E8DF3B4263648E79 /* Modules/Comb/CombModule.swift */,
+				D48ACB05947A59CFF5AF0082 /* Modules/Comb/CombViewModel.swift */,
+				1A4A5763271F62476A8FB6FA /* Modules/Comb/CombDetailView.swift */,
+			);
+			name = Comb;
+			sourceTree = "<group>";
+		};
+		8FA4FBDE039495A39F3E0D5A /* Sleep */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9EF36579AEB85C9CA334E /* Modules/Sleep/SleepModule.swift */,
+				6E29EC7F5DBEC6B3FE962755 /* Modules/Sleep/SleepViewModel.swift */,
+				8F283E170D3B67451D135A1A /* Modules/Sleep/SleepDetailView.swift */,
+				AF04492E89930BAD2AD30F78 /* Modules/Sleep/TextExplosionView.swift */,
+			);
+			name = Sleep;
+			sourceTree = "<group>";
+		};
+		965B19D25399B3B5E200AEA3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1BD6A659793A30AD7D1D09A2 /* Hair.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B2105CAC376BC4F384DFC504 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F2EDF49636A79D80BE42BC39 /* Core/Services/StreakCalculator.swift */,
+				988A11FA8792E5C226FA3B20 /* Core/Services/NotificationService.swift */,
+				718C9A9212D2BCFC6FBD2BFE /* Core/Services/SleepOverdueManager.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		C093929223D40D0703914543 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6A4D7C70052C8184E8945A0A /* App/HairApp.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		D15E064875517CFA97993A3F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5DF1B32EB80982FFA3D263DB /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D86A6181F72B213533F23AB9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A50DE2A0E222C733CF5C9FC6 /* Core/Models/CombRecord.swift */,
+				A265287E7DF4BF91F86A77A8 /* Core/Models/SleepRecord.swift */,
+				E5FBF88A5B7B93B6962EBD11 /* Core/Models/MedicationRecord.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3C1820D303B135B9F00CE91E /* Hair */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A902C217D7985A56F09DEE4 /* Build configuration list for PBXNativeTarget "Hair" */;
+			buildPhases = (
+				D0521B845F51FFC67E5DB64E /* Sources */,
+				51954560D1C860E8A5E351F0 /* Frameworks */,
+				EC5A83C0B94373D546F1583A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Hair;
+			productName = Hair;
+			productReference = 1BD6A659793A30AD7D1D09A2 /* Hair.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B402DC009534F0173B465A13 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					3C1820D303B135B9F00CE91E = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FF239BCF11DF1469280A77D5 /* Build configuration list for PBXProject "Hair" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5A19B3013F649C18C6DF7B9B;
+			productRefGroup = 965B19D25399B3B5E200AEA3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3C1820D303B135B9F00CE91E /* Hair */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC5A83C0B94373D546F1583A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38255B1A83700A2EAEBA8406 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0521B845F51FFC67E5DB64E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B2BAFE7C48CFC19618BDDA2 /* App/HairApp.swift in Sources */,
+				CA94D85595F4E58FE98BFF71 /* Core/ModuleProtocol.swift in Sources */,
+				064603C1E895E1533EECF5FC /* Core/ModuleRegistry.swift in Sources */,
+				ED041945A1ABAF8C9CF17E2C /* Core/Services/StreakCalculator.swift in Sources */,
+				990BCAA229CAA63E8571A8A3 /* Core/Services/NotificationService.swift in Sources */,
+				D0FE828866D2CFD42946C44D /* Home/HomeView.swift in Sources */,
+				AB79C07F1764F1DC47CAE123 /* Home/ModuleCardView.swift in Sources */,
+				F615D5116583AA76C111F163 /* Modules/Comb/CombModule.swift in Sources */,
+				B8D8180F652A6965FB1CC939 /* Modules/Comb/CombViewModel.swift in Sources */,
+				3BBBB99388CA9D1DCB1F0E2C /* Modules/Comb/CombDetailView.swift in Sources */,
+				3D28A5A8E89D782C62560217 /* Modules/Medication/MedicationModule.swift in Sources */,
+				A9026C00F246DB6D24CA0A4C /* Modules/Medication/MedicationViewModel.swift in Sources */,
+				4B34E548164764BB1BFBC3D8 /* Modules/Medication/MedicationDetailView.swift in Sources */,
+				765FFB2CE3BB55F815A9B925 /* Modules/Sleep/SleepModule.swift in Sources */,
+				04CC5D73BEB6FF7584EFF253 /* Modules/Sleep/SleepViewModel.swift in Sources */,
+				0382893749577311B61D4F36 /* Modules/Sleep/SleepDetailView.swift in Sources */,
+				E858DC3A08A6957AA6D3F782 /* Core/Models/CombRecord.swift in Sources */,
+				B93A1408ED75206D714B1AE6 /* Core/Models/SleepRecord.swift in Sources */,
+				3ED24173BBF55923771450DF /* Modules/Sleep/TextExplosionView.swift in Sources */,
+				D16900EEA25B9EB7917882D1 /* Core/Services/SleepOverdueManager.swift in Sources */,
+				3B2119A16A38D8BBF6927E32 /* Core/Models/MedicationRecord.swift in Sources */,
+				4429D8575543729A305C7375 /* Modules/Medication/SparkAnimationView.swift in Sources */,
+				C09E69D6D792B15CC5672664 /* Core/Components/CelebrationView.swift in Sources */,
+				09A74D04F3F0CE489BD1B0E7 /* Core/Components/EmptyStateView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		14D0B635BDF1CDF507E6D3F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Hair/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hair.app;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		45CEB07721C471E105168171 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Hair/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hair.app;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7237C96E4B95137CB959084A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		C833800BFE31E183EE60C95B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A902C217D7985A56F09DEE4 /* Build configuration list for PBXNativeTarget "Hair" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45CEB07721C471E105168171 /* Release */,
+				14D0B635BDF1CDF507E6D3F7 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF239BCF11DF1469280A77D5 /* Build configuration list for PBXProject "Hair" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C833800BFE31E183EE60C95B /* Debug */,
+				7237C96E4B95137CB959084A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B402DC009534F0173B465A13 /* Project object */;
+}
