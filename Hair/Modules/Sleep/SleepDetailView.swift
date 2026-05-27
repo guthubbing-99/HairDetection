@@ -4,6 +4,7 @@ import SwiftData
 struct SleepDetailView: View {
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject var overdueManager: SleepOverdueManager
+    @EnvironmentObject var achievementManager: AchievementManager
     @StateObject private var viewModel = SleepViewModel()
 
     var body: some View {
@@ -135,6 +136,7 @@ struct SleepDetailView: View {
         Button(action: {
             overdueManager.checkIn()
             viewModel.refresh()
+            achievementManager.refresh(context: modelContext)
         }) {
             Label(
                 overdueManager.hasCheckedInToday ? "再次打卡" : "睡眠打卡",

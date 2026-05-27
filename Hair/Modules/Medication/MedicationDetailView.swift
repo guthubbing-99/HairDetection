@@ -3,6 +3,7 @@ import SwiftData
 
 struct MedicationDetailView: View {
     @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject var achievementManager: AchievementManager
     @StateObject private var viewModel = MedicationViewModel()
 
     var body: some View {
@@ -79,6 +80,7 @@ struct MedicationDetailView: View {
             withAnimation(.spring(response: 0.4, dampingFraction: 0.5)) {
                 viewModel.checkIn()
             }
+            achievementManager.refresh(context: modelContext)
         }) {
             Label(
                 viewModel.hasCheckedInToday ? "今日已打卡 ✓" : "今日打卡",

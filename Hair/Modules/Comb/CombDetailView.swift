@@ -3,6 +3,7 @@ import SwiftData
 
 struct CombDetailView: View {
     @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject var achievementManager: AchievementManager
     @StateObject private var viewModel = CombViewModel()
 
     var body: some View {
@@ -63,6 +64,7 @@ struct CombDetailView: View {
             Button(action: {
                 withAnimation(.spring(response: 0.4, dampingFraction: 0.5)) {
                     viewModel.checkIn()
+                    achievementManager.refresh(context: modelContext)
                 }
             }) {
                 Label("打卡 +1", systemImage: "comb.fill")

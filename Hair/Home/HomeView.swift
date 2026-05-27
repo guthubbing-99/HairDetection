@@ -4,7 +4,10 @@ import SwiftData
 struct HomeView: View {
     @EnvironmentObject var registry: ModuleRegistry
     @EnvironmentObject var overdueManager: SleepOverdueManager
+    @EnvironmentObject var achievementManager: AchievementManager
     @Environment(\.modelContext) private var modelContext
+
+    @State private var weeklyReport: WeeklyReport?
 
     var body: some View {
         ZStack {
@@ -12,6 +15,14 @@ struct HomeView: View {
                 ScrollView {
                     VStack(spacing: 16) {
                         headerSection
+
+                        if let report = weeklyReport {
+                            WeeklyReportCard(report: report)
+                        }
+
+                        AchievementCard(manager: achievementManager)
+                            .padding(.top, 4)
+
                         largeCardsSection
                         smallCardsSection
                     }
@@ -27,7 +38,10 @@ struct HomeView: View {
 
                 VStack {
                     Spacer()
-                    Button(action: overdueManager.checkIn) {
+                    Button(action: {
+                        overdueManager.checkIn()
+                        achievementManager.refresh(context: modelContext)
+                    }) {
                         Label("立即打卡睡觉", systemImage: "moon.zzz.fill")
                             .font(.title3)
                             .fontWeight(.bold)
@@ -44,6 +58,8 @@ struct HomeView: View {
         }
         .onAppear {
             overdueManager.setup(context: modelContext)
+            achievementManager.refresh(context: modelContext)
+            weeklyReport = WeeklyReportService.generate(context: modelContext)
         }
     }
 
