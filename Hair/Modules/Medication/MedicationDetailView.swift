@@ -4,6 +4,7 @@ import SwiftData
 struct MedicationDetailView: View {
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject var achievementManager: AchievementManager
+    @EnvironmentObject var notificationService: NotificationService
     @StateObject private var viewModel = MedicationViewModel()
 
     var body: some View {
@@ -76,23 +77,37 @@ struct MedicationDetailView: View {
     // MARK: - Check-in Button
 
     private var checkInSection: some View {
-        Button(action: {
-            withAnimation(.spring(response: 0.4, dampingFraction: 0.5)) {
-                viewModel.checkIn()
+        VStack(spacing: 12) {
+            Button(action: {
+                withAnimation(.spring(response: 0.4, dampingFraction: 0.5)) {
+                    viewModel.checkIn()
+                }
+                achievementManager.refresh(context: modelContext)
+            }) {
+                Label(
+                    viewModel.hasCheckedInToday ? "今日已打卡 ✓" : "今日打卡",
+                    systemImage: viewModel.hasCheckedInToday ? "checkmark.circle.fill" : "pills.fill"
+                )
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 14)
             }
-            achievementManager.refresh(context: modelContext)
-        }) {
-            Label(
-                viewModel.hasCheckedInToday ? "今日已打卡 ✓" : "今日打卡",
-                systemImage: viewModel.hasCheckedInToday ? "checkmark.circle.fill" : "pills.fill"
-            )
-            .font(.headline)
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 14)
+            .buttonStyle(.borderedProminent)
+            .tint(viewModel.hasCheckedInToday ? .green : .orange)
+            .disabled(viewModel.hasCheckedInToday)
+
+            Toggle(isOn: $notificationService.medicationReminderEnabled) {
+                Label("每日提醒", systemImage: "bell.fill")
+                    .font(.subheadline)
+            }
+            .tint(.orange)
+            .onChange(of: notificationService.medicationReminderEnabled) { _, _ in
+                Task { await notificationService.rescheduleAllIfNeeded() }
+            }
         }
-        .buttonStyle(.borderedProminent)
-        .tint(viewModel.hasCheckedInToday ? .green : .orange)
-        .disabled(viewModel.hasCheckedInToday)
+        .padding()
+        .background(Color(.systemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
     // MARK: - Calendar

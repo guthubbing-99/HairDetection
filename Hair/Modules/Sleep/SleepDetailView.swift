@@ -5,6 +5,7 @@ struct SleepDetailView: View {
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject var overdueManager: SleepOverdueManager
     @EnvironmentObject var achievementManager: AchievementManager
+    @EnvironmentObject var notificationService: NotificationService
     @StateObject private var viewModel = SleepViewModel()
 
     var body: some View {
@@ -43,7 +44,19 @@ struct SleepDetailView: View {
                 .onChange(of: overdueManager.targetTime) { _, _ in
                     overdueManager.refresh()
                     viewModel.refresh()
+                    Task { await notificationService.refreshSleepReminder() }
                 }
+
+            Divider()
+
+            Toggle(isOn: $notificationService.sleepReminderEnabled) {
+                Label("就寝提醒", systemImage: "bell.fill")
+                    .font(.subheadline)
+            }
+            .tint(.indigo)
+            .onChange(of: notificationService.sleepReminderEnabled) { _, enabled in
+                Task { await notificationService.rescheduleAllIfNeeded() }
+            }
         }
         .padding()
         .background(Color(.systemBackground))

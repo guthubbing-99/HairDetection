@@ -4,6 +4,7 @@ import SwiftData
 struct CombDetailView: View {
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject var achievementManager: AchievementManager
+    @EnvironmentObject var notificationService: NotificationService
     @StateObject private var viewModel = CombViewModel()
 
     var body: some View {
@@ -74,6 +75,19 @@ struct CombDetailView: View {
             }
             .buttonStyle(.borderedProminent)
             .tint(.pink)
+
+            Divider()
+                .padding(.horizontal, 16)
+
+            Toggle(isOn: $notificationService.combReminderEnabled) {
+                Label("每日提醒", systemImage: "bell.fill")
+                    .font(.subheadline)
+            }
+            .tint(.pink)
+            .padding(.horizontal, 8)
+            .onChange(of: notificationService.combReminderEnabled) { _, _ in
+                Task { await notificationService.rescheduleAllIfNeeded() }
+            }
         }
         .padding(.vertical, 8)
         .frame(maxWidth: .infinity)

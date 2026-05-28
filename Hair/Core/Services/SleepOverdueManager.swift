@@ -144,7 +144,7 @@ class SleepOverdueManager: ObservableObject {
         UserDefaults.standard.set(dict, forKey: Self.targetTimeKey)
     }
 
-    private static func loadTargetTime() -> Date {
+    static func loadTargetTime() -> Date {
         guard let dict = UserDefaults.standard.dictionary(forKey: targetTimeKey) as? [String: Int],
               let hour = dict["hour"], let minute = dict["minute"] else {
             var components = DateComponents()

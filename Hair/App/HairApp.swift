@@ -6,6 +6,7 @@ struct HairApp: App {
     @StateObject private var registry = ModuleRegistry()
     @StateObject private var overdueManager = SleepOverdueManager()
     @StateObject private var achievementManager = AchievementManager()
+    @StateObject private var notificationService = NotificationService.shared
 
     var body: some Scene {
         WindowGroup {
@@ -13,9 +14,9 @@ struct HairApp: App {
                 .environmentObject(registry)
                 .environmentObject(overdueManager)
                 .environmentObject(achievementManager)
+                .environmentObject(notificationService)
                 .task {
-                    _ = await NotificationService.shared.requestAuthorization()
-                    await NotificationService.shared.scheduleAllDefaults()
+                    await notificationService.bootstrap()
                 }
         }
         .modelContainer(for: [CombRecord.self, SleepRecord.self, MedicationRecord.self])
