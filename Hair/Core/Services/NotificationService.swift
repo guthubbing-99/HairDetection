@@ -1,12 +1,17 @@
 import UserNotifications
 import SwiftUI
+import OSLog
 
 @MainActor
 class NotificationService: NSObject, ObservableObject, UNUserNotificationCenterDelegate {
     static let shared = NotificationService()
 
+    private let logger = Logger(subsystem: "com.hair.app", category: "NotificationService")
+
     /// Published when user taps a notification — the module ID to navigate to.
     @Published var deepLinkModule: String?
+    /// Whether notification permission has been granted.
+    @Published var isAuthorized: Bool = false
 
     // MARK: - UserDefaults toggles
 
@@ -22,7 +27,6 @@ class NotificationService: NSObject, ObservableObject, UNUserNotificationCenterD
 
     private override init() {
         let defaults = UserDefaults.standard
-        // Default to true on first launch when key is missing
         self.combReminderEnabled = defaults.object(forKey: Key.combEnabled) as? Bool ?? true
         self.medicationReminderEnabled = defaults.object(forKey: Key.medicationEnabled) as? Bool ?? true
         self.sleepReminderEnabled = defaults.object(forKey: Key.sleepEnabled) as? Bool ?? true
@@ -30,21 +34,35 @@ class NotificationService: NSObject, ObservableObject, UNUserNotificationCenterD
         UNUserNotificationCenter.current().delegate = self
     }
 
-    /// Call once at app launch to request permission and schedule defaults.
+    /// Call once at app launch.
     func bootstrap() async {
-        _ = await requestAuthorization()
+        let granted = await requestAuthorization()
+        isAuthorized = granted
+        logger.info("Notification authorization: \(granted)")
+        await refreshAuthorizationStatus()
         await rescheduleAllIfNeeded()
+        logPendingNotifications()
     }
 
     // MARK: - Authorization
 
     func requestAuthorization() async -> Bool {
         do {
-            return try await UNUserNotificationCenter.current()
+            let granted = try await UNUserNotificationCenter.current()
                 .requestAuthorization(options: [.alert, .sound, .badge])
+            isAuthorized = granted
+            logger.info("Notification permission granted: \(granted)")
+            return granted
         } catch {
+            logger.error("Notification permission error: \(error.localizedDescription)")
             return false
         }
+    }
+
+    func refreshAuthorizationStatus() async {
+        let settings = await UNUserNotificationCenter.current().notificationSettings()
+        isAuthorized = settings.authorizationStatus == .authorized
+        logger.info("Current authorization status: \(String(describing: settings.authorizationStatus.rawValue))")
     }
 
     // MARK: - Public scheduling
@@ -87,7 +105,6 @@ class NotificationService: NSObject, ObservableObject, UNUserNotificationCenterD
         }
     }
 
-    /// Reschedule sleep reminder when target time changes.
     func refreshSleepReminder() async {
         guard sleepReminderEnabled else { return }
         let center = UNUserNotificationCenter.current()
@@ -101,14 +118,52 @@ class NotificationService: NSObject, ObservableObject, UNUserNotificationCenterD
         )
     }
 
-    /// Remove all pending notifications.
+    // MARK: - Testing
+
+    /// Fires a test notification after `seconds` seconds — for verifying the system works.
+    func sendTestNotification(delay seconds: TimeInterval = 5) {
+        let content = UNMutableNotificationContent()
+        content.title = "测试通知"
+        content.body = "如果你看到这条消息，说明通知系统正常工作"
+        content.sound = .default
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: max(seconds, 1), repeats: false)
+        let request = UNNotificationRequest(identifier: "test.notification", content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error {
+                Task { @MainActor in
+                    self.logger.error("Test notification failed: \(error.localizedDescription)")
+                }
+            } else {
+                Task { @MainActor in
+                    self.logger.info("Test notification scheduled to fire in \(seconds)s")
+                }
+            }
+        }
+    }
+
+    /// Log all currently pending notifications to console.
+    func logPendingNotifications() {
+        UNUserNotificationCenter.current().getPendingNotificationRequests { [weak self] requests in
+            guard let self else { return }
+            Task { @MainActor in
+                self.logger.info("Pending notifications: \(requests.count)")
+                for req in requests {
+                    let trigger = req.trigger.flatMap { String(describing: $0) } ?? "nil"
+                    self.logger.info("  [\(req.identifier)] \(req.content.title) — trigger: \(trigger)")
+                }
+            }
+        }
+    }
+
     func cancelAll() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        logger.info("All notifications cancelled")
     }
 
     // MARK: - UNUserNotificationCenterDelegate
 
-    /// Show notification banner even when app is in foreground.
     nonisolated func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification,
@@ -117,7 +172,6 @@ class NotificationService: NSObject, ObservableObject, UNUserNotificationCenterD
         completionHandler([.banner, .sound])
     }
 
-    /// Handle notification tap — deep link to the relevant module.
     nonisolated func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         didReceive response: UNNotificationResponse,
@@ -155,10 +209,15 @@ class NotificationService: NSObject, ObservableObject, UNUserNotificationCenterD
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
 
-        try? await UNUserNotificationCenter.current().add(request)
+        do {
+            try await UNUserNotificationCenter.current().add(request)
+            let nextDate = trigger.nextTriggerDate().map { $0.formatted() } ?? "unknown"
+            logger.info("Scheduled [\(identifier)] at \(hour):\(String(format: "%02d", minute)), next fire: \(nextDate)")
+        } catch {
+            logger.error("Failed to schedule [\(identifier)]: \(error.localizedDescription)")
+        }
     }
 
-    /// Returns (hour, minute) 30 minutes before the user's saved target time.
     private func sleepReminderTime() -> (Int, Int) {
         let target = SleepOverdueManager.loadTargetTime()
         let calendar = Calendar.current

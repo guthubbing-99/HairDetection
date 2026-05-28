@@ -5,6 +5,7 @@ struct HomeView: View {
     @EnvironmentObject var registry: ModuleRegistry
     @EnvironmentObject var overdueManager: SleepOverdueManager
     @EnvironmentObject var achievementManager: AchievementManager
+    @EnvironmentObject var notificationService: NotificationService
     @Environment(\.modelContext) private var modelContext
 
     @State private var weeklyReport: WeeklyReport?
@@ -74,6 +75,18 @@ struct HomeView: View {
                     .fontWeight(.bold)
             }
             Spacer()
+
+            // Debug: tap to send a test notification after 5s
+            Button {
+                notificationService.sendTestNotification(delay: 5)
+            } label: {
+                Image(systemName: notificationService.isAuthorized
+                      ? "bell.badge.fill" : "bell.slash.fill")
+                    .font(.title3)
+                    .foregroundStyle(notificationService.isAuthorized ? .blue : .gray)
+            }
+            .buttonStyle(.plain)
+            .help("发送测试通知")
         }
     }
 
